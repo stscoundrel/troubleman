@@ -1,6 +1,10 @@
 package issues
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/stscoundrel/troubleman/internal/github"
+)
 
 type Issue struct {
 	Title   string `json:"title"`
@@ -14,10 +18,15 @@ type IssueResponse struct {
 	Issues     []Issue `json:"items"`
 }
 
-func FromJson(jsonContent []byte) []Issue {
+func fromJson(jsonContent []byte) []Issue {
 	var result IssueResponse
 
 	json.Unmarshal(jsonContent, &result)
 
 	return result.Issues
+}
+
+func GetIssues(username string) []Issue {
+	rawIssues, _ := github.GetIssues("stscoundrel", github.BASE_ISSUE_SEARCH_URL)
+	return fromJson(rawIssues)
 }
