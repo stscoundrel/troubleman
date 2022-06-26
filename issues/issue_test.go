@@ -7,11 +7,11 @@ import (
 )
 
 func TestParseissuesFromJson(t *testing.T) {
-	fixtureResponse, _ := os.Open("../github/fixtures/issue_response.json")
+	fixtureResponse, _ := os.Open("../fixtures/issue_response.json")
 	fixtureBody, _ := ioutil.ReadAll(fixtureResponse)
 	defer fixtureResponse.Close()
 
-	result := FromJson(fixtureBody)
+	result := fromJson(fixtureBody)
 
 	if result[0].Title != "Add short twig runes to lettersToRunes" {
 		t.Errorf("Expected %s, got %s", "Add short twig runes to lettersToRunes", result[0].Title)

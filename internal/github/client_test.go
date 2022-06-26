@@ -9,7 +9,7 @@ import (
 )
 
 func TestGetIssues(t *testing.T) {
-	fixtureResponse, _ := os.Open("fixtures/issue_response.json")
+	fixtureResponse, _ := os.Open("../../fixtures/issue_response.json")
 	fixtureBody, _ := ioutil.ReadAll(fixtureResponse)
 	defer fixtureResponse.Close()
 
