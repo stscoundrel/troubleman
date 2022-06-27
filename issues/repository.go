@@ -15,7 +15,7 @@ func getRepositoryName(url string) string {
 	return segments[len(segments)-2] + "/" + segments[len(segments)-1]
 }
 
-func RepositoriesFromIssues(issues []Issue) []Repository {
+func repositoriesFromIssues(issues []Issue) []Repository {
 	repositoriesToIssues := map[string][]Issue{}
 
 	for _, issue := range issues {

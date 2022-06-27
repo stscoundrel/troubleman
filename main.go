@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	issueList := issues.GetIssues("stscoundrel")
+	issueList, _ := issues.GetIssues("stscoundrel")
 
 	for _, issue := range issueList {
 		fmt.Println(issue.Title)
@@ -17,7 +17,7 @@ func main() {
 		fmt.Println("###########################")
 	}
 
-	repositories := issues.RepositoriesFromIssues(issueList)
+	repositories, _ := issues.GetRepositories("stscoundrel")
 
 	for _, repository := range repositories {
 		fmt.Println(repository.Title)

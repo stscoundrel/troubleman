@@ -40,7 +40,7 @@ func TestRepositoriesFromIssues(t *testing.T) {
 		},
 	}
 
-	result := RepositoriesFromIssues(issues)
+	result := repositoriesFromIssues(issues)
 
 	assert.Equal(t, len(result), 2)
 
