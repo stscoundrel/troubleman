@@ -2,8 +2,6 @@ package issues
 
 import (
 	"encoding/json"
-
-	"github.com/stscoundrel/troubleman/internal/github"
 )
 
 type Issue struct {
@@ -19,15 +17,10 @@ type IssueResponse struct {
 	Issues     []Issue `json:"items"`
 }
 
-func IssuesFromJson(jsonContent []byte) []Issue {
+func issuesFromJson(jsonContent []byte) []Issue {
 	var result IssueResponse
 
 	json.Unmarshal(jsonContent, &result)
 
 	return result.Issues
-}
-
-func GetIssues(username string) []Issue {
-	rawIssues, _ := github.GetIssues("stscoundrel", github.BASE_ISSUE_SEARCH_URL)
-	return IssuesFromJson(rawIssues)
 }
