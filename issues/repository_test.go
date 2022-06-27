@@ -12,31 +12,31 @@ func TestRepositoriesFromIssues(t *testing.T) {
 			Title:          "Test issue 1",
 			Link:           "https://github.com/stscoundrel/test-repo/issues/1",
 			Content:        "",
-			RepositoryLink: "https://github.com/stscoundrel/test-repo",
+			RepositoryLink: "https://api.github.com/stscoundrel/test-repo",
 		},
 		{
 			Title:          "Test issue 2",
 			Link:           "https://github.com/stscoundrel/test-repo/issues/2",
 			Content:        "",
-			RepositoryLink: "https://github.com/stscoundrel/test-repo2",
+			RepositoryLink: "https://api.github.com/stscoundrel/test-repo2",
 		},
 		{
 			Title:          "Test issue 3",
 			Link:           "https://github.com/stscoundrel/test-repo/issues/3",
 			Content:        "",
-			RepositoryLink: "https://github.com/stscoundrel/test-repo",
+			RepositoryLink: "https://api.github.com/stscoundrel/test-repo",
 		},
 		{
 			Title:          "Test issue 4",
 			Link:           "https://github.com/stscoundrel/test-repo/issues/4",
 			Content:        "",
-			RepositoryLink: "https://github.com/stscoundrel/test-repo2",
+			RepositoryLink: "https://api.github.com/stscoundrel/test-repo2",
 		},
 		{
 			Title:          "Test issue 5",
 			Link:           "https://github.com/stscoundrel/test-repo/issues/5",
 			Content:        "",
-			RepositoryLink: "https://github.com/stscoundrel/test-repo",
+			RepositoryLink: "https://api.github.com/stscoundrel/test-repo",
 		},
 	}
 
