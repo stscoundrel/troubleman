@@ -44,7 +44,7 @@ func TestRepositoriesFromIssues(t *testing.T) {
 
 	assert.Equal(t, len(result), 2)
 
-	assert.Equal(t, result[0].Title, "test-repo")
+	assert.Equal(t, result[0].Title, "stscoundrel/test-repo")
 	assert.Equal(t, result[0].Count, 3)
 	assert.Equal(t, result[0].Link, "https://github.com/stscoundrel/test-repo")
 	assert.Equal(t, result[0].Issues, []Issue{
@@ -53,7 +53,7 @@ func TestRepositoriesFromIssues(t *testing.T) {
 		issues[4],
 	})
 
-	assert.Equal(t, result[1].Title, "test-repo2")
+	assert.Equal(t, result[1].Title, "stscoundrel/test-repo2")
 	assert.Equal(t, result[1].Count, 2)
 	assert.Equal(t, result[1].Link, "https://github.com/stscoundrel/test-repo2")
 	assert.Equal(t, result[1].Issues, []Issue{

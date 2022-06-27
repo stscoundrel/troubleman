@@ -12,7 +12,7 @@ type Repository struct {
 func getRepositoryName(url string) string {
 	segments := strings.Split(url, "/")
 
-	return segments[len(segments)-1]
+	return segments[len(segments)-2] + "/" + segments[len(segments)-1]
 }
 
 func RepositoriesFromIssues(issues []Issue) []Repository {
