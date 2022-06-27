@@ -25,22 +25,22 @@ func main() {
     
     fmt.Println(issuesResult[0])
     // {
-	// 	Title:          "Test issue 1",
-	// 	Link:           "https://github.com/stscoundrel/test-repo/issues/1",
-	// 	Content:        "Lorem ipsum dolor sit issue",
-	// 	RepositoryLink: "https://github.com/stscoundrel/test-repo",
-	// },
+    // 	Title:          "Test issue 1",
+    // 	Link:           "https://github.com/stscoundrel/test-repo/issues/1",
+    // 	Content:        "Lorem ipsum dolor sit issue",
+    // 	RepositoryLink: "https://github.com/stscoundrel/test-repo",
+    // },
 
     // Get list of issues of issues grouped by repositories.
     repositoriesResult, repositoriesError := issues.GetRepositories("stscoundrel")
     
     fmt.Println(repositoriesResult[0])
     // {
-	// 	Title:          "stscoundrel/test-repo",
-	// 	Link:           "https://github.com/stscoundrel/test-repo",
-	// 	Count:          666,
-	// 	Issues:         [] // list of issues, per upper structure
-	// },
+    // 	Title:          "stscoundrel/test-repo",
+    // 	Link:           "https://github.com/stscoundrel/test-repo",
+    // 	Count:          666,
+    // 	Issues:         [] // list of issues, per upper structure
+    // },
 }
 ```
 
