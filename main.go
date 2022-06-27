@@ -16,4 +16,15 @@ func main() {
 
 		fmt.Println("###########################")
 	}
+
+	repositories := issues.RepositoriesFromIssues(issueList)
+
+	for _, repository := range repositories {
+		fmt.Println(repository.Title)
+		fmt.Println(repository.Link)
+		fmt.Println(repository.Count)
+		fmt.Println(repository.Issues)
+
+		fmt.Println("###########################")
+	}
 }

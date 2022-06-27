@@ -7,9 +7,10 @@ import (
 )
 
 type Issue struct {
-	Title   string `json:"title"`
-	Content string `json:"body"`
-	Link    string `json:"htmL_url"`
+	Title          string `json:"title"`
+	Content        string `json:"body"`
+	Link           string `json:"htmL_url"`
+	RepositoryLink string `json:"repository_url"`
 }
 
 type IssueResponse struct {
@@ -18,7 +19,7 @@ type IssueResponse struct {
 	Issues     []Issue `json:"items"`
 }
 
-func fromJson(jsonContent []byte) []Issue {
+func IssuesFromJson(jsonContent []byte) []Issue {
 	var result IssueResponse
 
 	json.Unmarshal(jsonContent, &result)
@@ -28,5 +29,5 @@ func fromJson(jsonContent []byte) []Issue {
 
 func GetIssues(username string) []Issue {
 	rawIssues, _ := github.GetIssues("stscoundrel", github.BASE_ISSUE_SEARCH_URL)
-	return fromJson(rawIssues)
+	return IssuesFromJson(rawIssues)
 }

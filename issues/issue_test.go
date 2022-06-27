@@ -11,7 +11,7 @@ func TestParseissuesFromJson(t *testing.T) {
 	fixtureBody, _ := ioutil.ReadAll(fixtureResponse)
 	defer fixtureResponse.Close()
 
-	result := fromJson(fixtureBody)
+	result := IssuesFromJson(fixtureBody)
 
 	if result[0].Title != "Add short twig runes to lettersToRunes" {
 		t.Errorf("Expected %s, got %s", "Add short twig runes to lettersToRunes", result[0].Title)
