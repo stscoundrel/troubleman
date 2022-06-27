@@ -15,6 +15,12 @@ func getRepositoryName(url string) string {
 	return segments[len(segments)-2] + "/" + segments[len(segments)-1]
 }
 
+func getRepositoryUrl(repositoryName string) string {
+	// API response contains only "api" version of repo url.
+	// Parse proper user url based on repo name.
+	return "https://github.com/" + repositoryName
+}
+
 func repositoriesFromIssues(issues []Issue) []Repository {
 	repositoriesToIssues := map[string][]Issue{}
 
@@ -25,9 +31,10 @@ func repositoriesFromIssues(issues []Issue) []Repository {
 	repositories := []Repository{}
 
 	for repositoryUrl, repositoryIssues := range repositoriesToIssues {
+		name := getRepositoryName(repositoryUrl)
 		repositories = append(repositories, Repository{
-			Title:  getRepositoryName(repositoryUrl),
-			Link:   repositoryUrl,
+			Title:  name,
+			Link:   getRepositoryUrl(name),
 			Issues: repositoryIssues,
 			Count:  len(repositoryIssues),
 		})
