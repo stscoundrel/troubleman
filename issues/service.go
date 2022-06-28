@@ -1,6 +1,8 @@
 package issues
 
-import "github.com/stscoundrel/troubleman/internal/github"
+import (
+	"github.com/stscoundrel/troubleman/internal/github"
+)
 
 func GetIssues(username string) ([]Issue, error) {
 	rawIssues, error := github.GetIssues(username, github.BASE_ISSUE_SEARCH_URL)

@@ -2,6 +2,7 @@ package issues
 
 import (
 	"encoding/json"
+	"sort"
 )
 
 type Issue struct {
@@ -22,5 +23,15 @@ func issuesFromJson(jsonContent []byte) []Issue {
 
 	json.Unmarshal(jsonContent, &result)
 
-	return result.Issues
+	issues := sortIssues(result.Issues)
+
+	return issues
+}
+
+func sortIssues(issues []Issue) []Issue {
+	sort.Slice(issues, func(i, j int) bool {
+		return issues[i].Link < issues[j].Link
+	})
+
+	return issues
 }

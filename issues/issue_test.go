@@ -4,6 +4,8 @@ import (
 	"io/ioutil"
 	"os"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestParseIssuesFromJson(t *testing.T) {
@@ -13,19 +15,12 @@ func TestParseIssuesFromJson(t *testing.T) {
 
 	result := issuesFromJson(fixtureBody)
 
-	if result[0].Title != "Add short twig runes to lettersToRunes" {
-		t.Errorf("Expected %s, got %s", "Add short twig runes to lettersToRunes", result[0].Title)
-	}
+	assert.Equal(t, result[0].Title, "Ignores: allow custom ignores")
+	assert.Equal(t, result[0].Link, "https://github.com/stscoundrel/alliser/issues/9")
 
-	if result[0].Link != "https://github.com/stscoundrel/younger-futhark/issues/165" {
-		t.Errorf("Expected %s, got %s", "https://github.com/stscoundrel/younger-futhark/issues/165", result[0].Link)
-	}
+	assert.Equal(t, result[1].Title, "Add sessionStorage variant")
+	assert.Equal(t, result[1].Link, "https://github.com/stscoundrel/emma/issues/10")
 
-	if result[1].Title != "Check SWC as alternative to TypeScript default build" {
-		t.Errorf("Expected %s, got %s", "Check SWC as alternative to TypeScript default build", result[1].Title)
-	}
-
-	if result[1].Link != "https://github.com/stscoundrel/old-norwegian-dictionary/issues/38" {
-		t.Errorf("Expected %s, got %s", "https://github.com/stscoundrel/old-norwegian-dictionary/issues/38", result[1].Link)
-	}
+	assert.Equal(t, result[5].Title, "Add integration tests to keyboard pages")
+	assert.Equal(t, result[5].Link, "https://github.com/stscoundrel/runes/issues/37")
 }
