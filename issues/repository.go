@@ -1,6 +1,9 @@
 package issues
 
-import "strings"
+import (
+	"sort"
+	"strings"
+)
 
 type Repository struct {
 	Title  string
@@ -39,6 +42,14 @@ func repositoriesFromIssues(issues []Issue) []Repository {
 			Count:  len(repositoryIssues),
 		})
 	}
+
+	return sortRepositories(repositories)
+}
+
+func sortRepositories(repositories []Repository) []Repository {
+	sort.Slice(repositories, func(i, j int) bool {
+		return repositories[i].Link < repositories[j].Link
+	})
 
 	return repositories
 }
